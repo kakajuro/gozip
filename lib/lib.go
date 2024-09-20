@@ -5,21 +5,24 @@ import (
 	"os"
 )
 
-func DoesExist(path string) int {
+func DoesExist(path string) bool {
 
 	_, err := os.Stat(path)
 	if err != nil {
 
 		if os.IsNotExist(err) {
 			fmt.Println("Desired file or directory does not exist")
-			os.Exit(1)
+			return false
 		} else {
 			fmt.Println(err)
-			os.Exit(1)
+			return false
 		}
 
+	} else {
+		fmt.Println("An error occurred checking if the directory exists or not")
+		os.Exit(1)
 	}
 
-	return 0
+	return true
 
 }
