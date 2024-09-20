@@ -18,9 +18,6 @@ func DoesExist(path string) bool {
 			return false
 		}
 
-	} else {
-		fmt.Println("An error occurred checking if the directory exists or not")
-		os.Exit(1)
 	}
 
 	return true
