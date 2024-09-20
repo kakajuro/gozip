@@ -4,26 +4,8 @@ import (
 	"fmt"
 	"os"
 	"path/filepath"
+	lib "kakajuro/gozip/lib"
 )
-
-func doesExist(path string) int {
-
-	_, err := os.Stat(path)
-	if err != nil {
-
-		if os.IsNotExist(err) {
-			fmt.Println("Desired file or directory does not exist")
-			os.Exit(1)
-		} else {
-			fmt.Println(err)
-			os.Exit(1)
-		}
-
-	}
-
-	return 0
-
-}
 
 func main() {
 
@@ -34,7 +16,7 @@ func main() {
 	}
 
 	// Check if provided file/directory exists
-	res := doesExist(os.Args[1]);
+	res := lib.DoesExist(os.Args[1]);
 	if res == 0 { fmt.Println("Time to zip files.") }
 
 	// Get file/directory path
